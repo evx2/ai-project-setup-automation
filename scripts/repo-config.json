@@ -1,0 +1,30 @@
+{
+  "repositories": {
+    "atlas": {
+      "name": "Software-Engineer-AI-Agent-Atlas",
+      "url": "https://github.com/your-username/Software-Engineer-AI-Agent-Atlas.git",
+      "branch": "main",
+      "required": true,
+      "description": "Atlas brain template structure"
+    },
+    "wordpress": {
+      "name": "WordPress-AI-Commander", 
+      "url": "https://github.com/your-username/WordPress-AI-Commander.git",
+      "branch": "main",
+      "required": false,
+      "description": "WordPress development patterns and tools"
+    },
+    "taskmaster": {
+      "name": "Task-Master-AI",
+      "url": "https://github.com/your-username/Task-Master-AI.git", 
+      "branch": "main",
+      "required": false,
+      "description": "Task management integration"
+    }
+  },
+  "settings": {
+    "repos_directory": ".repos",
+    "auto_update": false,
+    "clone_timeout": 300
+  }
+}
