@@ -1,6 +1,6 @@
 #!/bin/bash
 # New Project Setup Script (Bash version)
-# Usage: ./new-project.sh project-name [wordpress]
+# Usage: ./new-project.sh project-name [wordpress|wp]
 
 PROJECT_NAME="$1"
 IS_WORDPRESS="$2"
@@ -75,7 +75,7 @@ ensure_repositories() {
 
 if [ -z "$PROJECT_NAME" ]; then
     echo "❌ Error: Project name required"
-    echo "Usage: ./new-project.sh project-name"
+    echo "Usage: ./new-project.sh project-name [wordpress|wp]"
     exit 1
 fi
 
@@ -240,7 +240,7 @@ else
 fi
 
 # 6. Setup WordPress patterns based on parameter
-if [[ "$IS_WORDPRESS" == "wordpress" ]]; then
+if [[ "$IS_WORDPRESS" == "wordpress" ]] || [[ "$IS_WORDPRESS" == "wp" ]]; then
     echo "📁 Setting up WordPress patterns (specified via parameter)..."
     wp_patterns_source="$ROOT_PATH/.claude/.repos/WordPress-AI-Commander/includes/tools"
     wp_patterns_target="$ATLAS_PATH/scripts/wordpress-patterns"
