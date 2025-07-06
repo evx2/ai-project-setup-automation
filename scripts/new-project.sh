@@ -1,8 +1,9 @@
 #!/bin/bash
 # New Project Setup Script (Bash version)
-# Usage: ./new-project.sh project-name
+# Usage: ./new-project.sh project-name [wordpress]
 
 PROJECT_NAME="$1"
+IS_WORDPRESS="$2"
 
 # Get current script location dynamically
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -238,12 +239,10 @@ else
     echo "   cd $ATLAS_PATH && task-master init"
 fi
 
-# 6. Copy WordPress patterns (if WP project)
-echo -n "Is this a WordPress project? (y/N): "
-read -r is_wordpress
-if [[ $is_wordpress =~ ^[Yy]$ ]]; then
-    echo "📁 Setting up WordPress patterns..."
-    wp_patterns_source="$ROOT_PATH/.claude/.repos/ai-command/includes/tools"
+# 6. Setup WordPress patterns based on parameter
+if [[ "$IS_WORDPRESS" == "wordpress" ]]; then
+    echo "📁 Setting up WordPress patterns (specified via parameter)..."
+    wp_patterns_source="$ROOT_PATH/.claude/.repos/WordPress-AI-Commander/includes/tools"
     wp_patterns_target="$ATLAS_PATH/scripts/wordpress-patterns"
     
     if [ -d "$wp_patterns_source" ]; then
@@ -252,7 +251,10 @@ if [[ $is_wordpress =~ ^[Yy]$ ]]; then
         echo "✅ WordPress patterns copied"
     else
         echo "⚠️  WordPress patterns not found at: $wp_patterns_source"
+        echo "   Run: git clone https://github.com/Idearia/WordPress-AI-Commander.git $ROOT_PATH/.claude/.repos/WordPress-AI-Commander"
     fi
+else
+    echo "ℹ️  Skipping WordPress patterns (not specified as WordPress project)"
 fi
 
 # 7. Verification
