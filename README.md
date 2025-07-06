@@ -22,7 +22,8 @@ This project provides cross-platform automation for:
 ✅ **Atlas Brain Integration** - Complete Software Engineer AI Agent Atlas setup
 ✅ **Documentation Organization** - Centralized docs with convenient Atlas access
 ✅ **Task-Master Integration** - Automatic task management setup
-✅ **WordPress Patterns** - Optional WordPress development patterns
+✅ **WordPress Patterns** - Automatic WordPress development patterns via parameter
+✅ **Parameter-based Setup** - WordPress projects via `wordpress` or `wp` parameter
 
 ## Summary
 
@@ -59,7 +60,12 @@ cd ai-project-setup-automation
 
 ### Bash (Linux/WSL)
 ```bash
+# Regular project
 ./scripts/new-project.sh my-project-name
+
+# WordPress project (automatically includes WP reference library)
+./scripts/new-project.sh my-project-name wordpress
+./scripts/new-project.sh my-project-name wp          # Short form
 ```
 
 ### PowerShell (Windows)
@@ -142,8 +148,9 @@ The scripts create Windows junctions that provide:
 
 ### Create a WordPress project
 ```bash
-./scripts/new-project.sh wp-project
-# Answer "y" when asked about WordPress patterns
+# Automatically includes WordPress reference patterns
+./scripts/new-project.sh wp-project wordpress
+./scripts/new-project.sh wp-project wp        # Short form
 ```
 
 ### Resume an existing project
