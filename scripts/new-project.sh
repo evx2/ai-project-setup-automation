@@ -242,7 +242,7 @@ fi
 # 6. Setup WordPress patterns based on parameter
 if [[ "$IS_WORDPRESS" == "wordpress" ]] || [[ "$IS_WORDPRESS" == "wp" ]]; then
     echo "📁 Setting up WordPress patterns (specified via parameter)..."
-    wp_patterns_source="$ROOT_PATH/.claude/.repos/WordPress-AI-Commander/includes/tools"
+    wp_patterns_source="$ROOT_PATH/.claude/.repos/WordPress-AI-Commander/tools"
     wp_patterns_target="$ATLAS_PATH/scripts/wordpress-patterns"
     
     if [ -d "$wp_patterns_source" ]; then
